@@ -17,12 +17,12 @@ export default function MovieCard(movie) {
     movie.movie;
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300 }} className="my-4">
       <CardMedia
         component="img"
         height="194"
         image="src\assets\video.png"
-        alt="Paella dish"
+        alt="movie_img"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

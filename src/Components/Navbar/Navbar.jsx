@@ -3,6 +3,8 @@ import { styled, alpha } from "@mui/material/styles";
 import { AppBar, Box, Toolbar, Typography, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import NavbarOptions from "./NavbarOptions";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchedValue } from "../../Slice/movieSlice";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -45,6 +47,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+
+  const { searchValue } = useSelector((state) => state.movies);
+
+  const onSearchChange = (e) => {
+    dispatch(setSearchedValue(e.target.value));
+    console.log(searchValue);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -57,12 +68,12 @@ export default function Navbar() {
           >
             MovieMania
           </Typography>
-          <Search>
+          <Search onChange={onSearchChange}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search movies…"
               inputProps={{ "aria-label": "search" }}
             />
           </Search>

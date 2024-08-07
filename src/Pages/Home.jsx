@@ -13,7 +13,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-evenly mt-10">
+    <div className="flex flex-wrap justify-evenly">
       {movies?.length > 0 &&
         movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
     </div>
