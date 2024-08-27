@@ -24,8 +24,62 @@ export default function NavbarOptions() {
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Typography sx={{ minWidth: 100 }}>Favorites</Typography>
-        <Typography sx={{ minWidth: 100 }}>Profile</Typography>
+        <Link to="recentlyadded">
+          <Typography
+            sx={{ minWidth: 100 }}
+            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+          >
+            Recently Added
+          </Typography>
+        </Link>
+        <Link to="popular">
+          <Typography
+            sx={{ minWidth: 100 }}
+            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+          >
+            Popular
+          </Typography>
+        </Link>
+        <Link to="trending">
+          <Typography
+            sx={{ minWidth: 100 }}
+            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+          >
+            Trending
+          </Typography>
+        </Link>
+        <Link to="boxofficehits">
+          <Typography
+            sx={{ minWidth: 100 }}
+            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+          >
+            Box Office Hits
+          </Typography>
+        </Link>
+        <Link to="upcoming">
+          <Typography
+            sx={{ minWidth: 100 }}
+            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+          >
+            Upcoming
+          </Typography>
+        </Link>
+        <Link to="favorites">
+          <Typography
+            sx={{ minWidth: 100 }}
+            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+          >
+            Favorites
+          </Typography>
+        </Link>
+        <Link to="profile">
+          <Typography
+            sx={{ minWidth: 100 }}
+            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+          >
+            Profile
+          </Typography>
+        </Link>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
