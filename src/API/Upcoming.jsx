@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setUpcoming } from "../Slice/upcominglice";
+import { setUpcoming } from "../Slice/movieSlice";
 
 const options = {
   method: "GET",
@@ -16,6 +16,7 @@ const getUpcoming = () => async (dispatch) => {
   try {
     const { data } = await axios.request(options);
     dispatch(setUpcoming(data));
+    console.log("getUpcoming", data);
     return data;
   } catch (err) {
     console.log(err);

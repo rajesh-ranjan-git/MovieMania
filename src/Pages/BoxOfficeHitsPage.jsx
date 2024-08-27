@@ -6,7 +6,11 @@ import MovieCard from "../Components/MovieCard/MovieCard";
 const BoxOfficeHitsPage = () => {
   const dispatch = useDispatch();
 
-  const { boxOfficeHitsValue } = useSelector((state) => state.movies);
+  const { movie_results } = useSelector(
+    (state) => state.movies
+  ).boxOfficeHitsValue;
+
+  console.log("BoxOfficeHitsPage", movie_results);
 
   useEffect(() => {
     dispatch(getBoxOfficeHits());
@@ -14,9 +18,9 @@ const BoxOfficeHitsPage = () => {
 
   return (
     <div className="flex flex-wrap justify-evenly">
-      {boxOfficeHitsValue?.length > 0 &&
-        boxOfficeHitsValue.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+      {movie_results?.length > 0 &&
+        movie_results.map((movie) => (
+          <MovieCard key={movie.imdb_id} movie={movie} />
         ))}
     </div>
   );

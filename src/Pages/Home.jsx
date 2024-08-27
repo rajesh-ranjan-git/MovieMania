@@ -6,7 +6,8 @@ import MovieCard from "../Components/MovieCard/MovieCard";
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { movies } = useSelector((state) => state.movies);
+  const { movie_results } = useSelector((state) => state.movies).movies;
+  console.log("Home", movie_results);
 
   useEffect(() => {
     dispatch(getMovies());
@@ -14,8 +15,10 @@ const Home = () => {
 
   return (
     <div className="flex flex-wrap justify-evenly">
-      {movies?.length > 0 &&
-        movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+      {movie_results?.length > 0 &&
+        movie_results.map((movie) => (
+          <MovieCard key={movie.imdb_id} movie={movie} />
+        ))}
     </div>
   );
 };

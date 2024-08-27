@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import getUpcoming from "../API/Upcoming";
 import MovieCard from "../Components/MovieCard/MovieCard";
 
-const Home = () => {
+const Upcoming = () => {
   const dispatch = useDispatch();
 
-  const { upcomingValue } = useSelector((state) => state.movies);
+  const { movie_results } = useSelector((state) => state.movies).upcomingValue;
+  console.log("Upcoming", movie_results);
 
   useEffect(() => {
     dispatch(getUpcoming());
@@ -14,12 +15,12 @@ const Home = () => {
 
   return (
     <div className="flex flex-wrap justify-evenly">
-      {upcomingValue?.length > 0 &&
-        upcomingValue.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+      {movie_results?.length > 0 &&
+        movie_results.map((movie) => (
+          <MovieCard key={movie.imdb_id} movie={movie} />
         ))}
     </div>
   );
 };
 
-export default Home;
+export default Upcoming;

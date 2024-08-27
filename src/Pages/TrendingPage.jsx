@@ -6,7 +6,8 @@ import MovieCard from "../Components/MovieCard/MovieCard";
 const TrendingPage = () => {
   const dispatch = useDispatch();
 
-  const { trendingValue } = useSelector((state) => state.movies);
+  const { movie_results } = useSelector((state) => state.movies).trendingValue;
+  console.log("TrendingPage", movie_results);
 
   useEffect(() => {
     dispatch(getTrending());
@@ -14,9 +15,9 @@ const TrendingPage = () => {
 
   return (
     <div className="flex flex-wrap justify-evenly">
-      {trendingValue?.length > 0 &&
-        trendingValue.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+      {movie_results?.length > 0 &&
+        movie_results.map((movie) => (
+          <MovieCard key={movie.imdb_id} movie={movie} />
         ))}
     </div>
   );

@@ -6,7 +6,10 @@ import MovieCard from "../Components/MovieCard/MovieCard";
 const RecentlyAddedPage = () => {
   const dispatch = useDispatch();
 
-  const { recentlyAddedValue } = useSelector((state) => state.movies);
+  const { movie_results } = useSelector(
+    (state) => state.movies
+  ).recentlyAddedValue;
+  console.log("RecentlyAddedPage", movie_results);
 
   useEffect(() => {
     dispatch(getRecentlyAdded());
@@ -14,9 +17,9 @@ const RecentlyAddedPage = () => {
 
   return (
     <div className="flex flex-wrap justify-evenly">
-      {recentlyAddedValue?.length > 0 &&
-        recentlyAddedValue.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+      {movie_results?.length > 0 &&
+        movie_results.map((movie) => (
+          <MovieCard key={movie.imdb_id} movie={movie} />
         ))}
     </div>
   );

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setTrending } from "../Slice/trendinglice";
+import { setTrending } from "../Slice/movieSlice";
 
 const options = {
   method: "GET",
@@ -16,6 +16,7 @@ const getTrending = () => async (dispatch) => {
   try {
     const { data } = await axios.request(options);
     dispatch(setTrending(data));
+    console.log("getTrending", data);
     return data;
   } catch (err) {
     console.log(err);

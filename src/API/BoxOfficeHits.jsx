@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setBoxOfficeHits } from "../Slice/boxOfficeHitsSlice";
+import { setBoxOfficeHits } from "../Slice/movieSlice";
 
 const options = {
   method: "GET",
@@ -16,6 +16,7 @@ const getBoxOfficeHits = () => async (dispatch) => {
   try {
     const { data } = await axios.request(options);
     dispatch(setBoxOfficeHits(data));
+    console.log("getBoxOfficeHits", data);
     return data;
   } catch (err) {
     console.log(err);

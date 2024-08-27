@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setPopular } from "../Slice/popularSlice";
+import { setPopular } from "../Slice/movieSlice";
 
 const options = {
   method: "GET",
@@ -19,6 +19,7 @@ const getPopular = () => async (dispatch) => {
   try {
     const { data } = await axios.request(options);
     dispatch(setPopular(data));
+    console.log("getPopular", data);
     return data;
   } catch (err) {
     console.log(err);

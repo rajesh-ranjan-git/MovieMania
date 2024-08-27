@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setRecentlyAdded } from "../Slice/recentlyAddedlice";
+import { setRecentlyAdded } from "../Slice/movieSlice";
 
 const options = {
   method: "GET",
@@ -16,6 +16,7 @@ const getRecentlyAdded = () => async (dispatch) => {
   try {
     const { data } = await axios.request(options);
     dispatch(setRecentlyAdded(data));
+    console.log("getRecentlyAdded", data);
     return data;
   } catch (err) {
     console.log(err);

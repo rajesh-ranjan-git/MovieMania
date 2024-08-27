@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  movies: [],
-  boxOfficeHitsValue: [],
-  popularValue: [],
-  recentlyAddedValue: [],
-  trendingValue: [],
-  upcomingValue: [],
+  movies: {},
+  boxOfficeHitsValue: {},
+  popularValue: {},
+  recentlyAddedValue: {},
+  trendingValue: {},
+  upcomingValue: {},
   searchValue: "",
 };
 
@@ -17,19 +17,19 @@ const movieSlice = createSlice({
     setMovies: (state, action) => {
       state.movies = action.payload;
     },
-    setBoxOfficeHitsSlice: (state, action) => {
+    setBoxOfficeHits: (state, action) => {
       state.boxOfficeHitsValue = action.payload;
     },
-    setPopularSlice: (state, action) => {
+    setPopular: (state, action) => {
       state.popularValue = action.payload;
     },
-    setRecentlyAddedSlice: (state, action) => {
+    setRecentlyAdded: (state, action) => {
       state.recentlyAddedValue = action.payload;
     },
-    setTrendingSlice: (state, action) => {
+    setTrending: (state, action) => {
       state.trendingValue = action.payload;
     },
-    setUpcomingSlice: (state, action) => {
+    setUpcoming: (state, action) => {
       state.upcomingValue = action.payload;
     },
     setSearchedValue: (state, action) => {

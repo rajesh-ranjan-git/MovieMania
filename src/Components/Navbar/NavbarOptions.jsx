@@ -11,6 +11,7 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import { Link } from "react-router-dom";
 
 export default function NavbarOptions() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -27,7 +28,7 @@ export default function NavbarOptions() {
         <Link to="recentlyadded">
           <Typography
             sx={{ minWidth: 100 }}
-            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
           >
             Recently Added
           </Typography>
@@ -35,7 +36,7 @@ export default function NavbarOptions() {
         <Link to="popular">
           <Typography
             sx={{ minWidth: 100 }}
-            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
           >
             Popular
           </Typography>
@@ -43,7 +44,7 @@ export default function NavbarOptions() {
         <Link to="trending">
           <Typography
             sx={{ minWidth: 100 }}
-            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
           >
             Trending
           </Typography>
@@ -51,7 +52,7 @@ export default function NavbarOptions() {
         <Link to="boxofficehits">
           <Typography
             sx={{ minWidth: 100 }}
-            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
           >
             Box Office Hits
           </Typography>
@@ -59,7 +60,7 @@ export default function NavbarOptions() {
         <Link to="upcoming">
           <Typography
             sx={{ minWidth: 100 }}
-            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
           >
             Upcoming
           </Typography>
@@ -67,7 +68,7 @@ export default function NavbarOptions() {
         <Link to="favorites">
           <Typography
             sx={{ minWidth: 100 }}
-            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
           >
             Favorites
           </Typography>
@@ -75,7 +76,7 @@ export default function NavbarOptions() {
         <Link to="profile">
           <Typography
             sx={{ minWidth: 100 }}
-            className="p-3 hover:bg-blue-500 rounded-md cursor-pointer"
+            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
           >
             Profile
           </Typography>

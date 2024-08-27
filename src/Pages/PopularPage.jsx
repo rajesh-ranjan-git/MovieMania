@@ -6,7 +6,8 @@ import MovieCard from "../Components/MovieCard/MovieCard";
 const PopularPage = () => {
   const dispatch = useDispatch();
 
-  const { popularValue } = useSelector((state) => state.movies);
+  const { movie_results } = useSelector((state) => state.movies).popularValue;
+  console.log("PopularPage", movie_results);
 
   useEffect(() => {
     dispatch(getPopular());
@@ -14,8 +15,10 @@ const PopularPage = () => {
 
   return (
     <div className="flex flex-wrap justify-evenly">
-      {popularValue?.length > 0 &&
-        popularValue.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+      {movie_results?.length > 0 &&
+        movie_results.map((movie) => (
+          <MovieCard key={movie.imdb_id} movie={movie} />
+        ))}
     </div>
   );
 };
