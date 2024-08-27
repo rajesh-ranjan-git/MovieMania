@@ -15,56 +15,70 @@ import { Link } from "react-router-dom";
 
 export default function NavbarOptions() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [yearClick, setYearClick] = React.useState(false);
+
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleYearDropdown = () => {
+    setYearClick(!yearClick);
+  };
+
+  const yearDisplay = () => {
+    let yearArr = [];
+    for (let i = 2024; i >= 2018; i--) {
+      yearArr.push(i);
+    }
+    return yearArr;
+  };
+
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Link to="recentlyadded">
-          <Typography
-            sx={{ minWidth: 100 }}
-            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
+        <div className="relative">
+          <button
+            className=" text-white bg-transparent hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg p-3 text-center inline-flex items-center"
+            type="button"
+            onClick={handleYearDropdown}
           >
-            Recently Added
-          </Typography>
-        </Link>
-        <Link to="popular">
-          <Typography
-            sx={{ minWidth: 100 }}
-            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
-          >
-            Popular
-          </Typography>
-        </Link>
-        <Link to="trending">
-          <Typography
-            sx={{ minWidth: 100 }}
-            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
-          >
-            Trending
-          </Typography>
-        </Link>
-        <Link to="boxofficehits">
-          <Typography
-            sx={{ minWidth: 100 }}
-            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
-          >
-            Box Office Hits
-          </Typography>
-        </Link>
-        <Link to="upcoming">
-          <Typography
-            sx={{ minWidth: 100 }}
-            className="p-3 text-white hover:bg-blue-500 rounded-md cursor-pointer"
-          >
-            Upcoming
-          </Typography>
-        </Link>
+            Year{" "}
+            <svg
+              className="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </button>
+          {yearClick && (
+            <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 top-[120%] right-[-70%]">
+              <ul className="py-2 text-sm text-gray-700">
+                {yearDisplay().map((yearItem, index) => (
+                  <li key={index}>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                      {yearItem}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
         <Link to="favorites">
           <Typography
             sx={{ minWidth: 100 }}
