@@ -1,11 +1,18 @@
 import axios from "axios";
-import React from "react";
 import { setMovies } from "../Slice/movieSlice";
 
+const options = {
+  method: "GET",
+  url: "https://imdb-top-100-movies.p.rapidapi.com/",
+  headers: {
+    "x-rapidapi-key": "4cf4ad1e3amsh9a90ce59e6791c5p1d5b6ajsn6cdbcad22a5f",
+    "x-rapidapi-host": "imdb-top-100-movies.p.rapidapi.com",
+  },
+};
+
 const getMovies = () => async (dispatch) => {
-  const url = "https://freetestapi.com/api/v1/movies";
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.request(options);
     dispatch(setMovies(data));
     return data;
   } catch (err) {

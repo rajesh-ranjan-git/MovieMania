@@ -13,36 +13,27 @@ import Star from "@mui/icons-material/Star";
 import ShareIcon from "@mui/icons-material/Share";
 
 export default function MovieCard(movie) {
-  const { title, director, genre, rating, runtime, language, production } =
-    movie.movie;
+  const { title, description, genre, rating, year, image } = movie.movie;
 
   return (
-    <Card sx={{ maxWidth: 300 }} className="my-4">
-      <CardMedia
-        component="img"
-        height="194"
-        image="src\assets\video.png"
-        alt="movie_img"
-      />
-      <CardContent>
+    <Card sx={{ maxWidth: 300 }} className="my-4 relative">
+      <CardMedia component="img" height="194" image={image} alt="movie_img" />
+      <CardContent className="mb-8">
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Directed By : {director}
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          className="h-10 overflow-hidden"
+        >
+          <strong>Description</strong> : {description}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Genre :
-          <Chip label={genre} />
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Language : {language}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Production : {production}
+          <strong>Genre</strong> : {genre}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing className="absolute bottom-0">
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
@@ -50,7 +41,7 @@ export default function MovieCard(movie) {
           <ShareIcon />
         </IconButton>
         <Typography variant="body2" color="text.secondary">
-          Duration : {runtime} mins
+          Year : {year}
         </Typography>
         <IconButton aria-label="share">
           <Star />
