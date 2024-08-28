@@ -1,7 +1,15 @@
+import { Outlet } from "react-router-dom";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+
 function App() {
   return (
     <main>
-      <p className="text-5xl text-blue-800 font-makeba">MovieMania</p>
+      <Header />
+      <div className="pt-16">
+        <Outlet />
+      </div>
+      <Footer />
     </main>
   );
 }
