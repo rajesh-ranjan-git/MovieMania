@@ -12,7 +12,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    navigate(`/search?q=${search}`);
+    if (search) {
+      navigate(`/search?q=${search}`);
+    }
   }, [search]);
 
   return (
