@@ -8,7 +8,6 @@ const options = {
   headers: {
     "x-rapidapi-key": "4cf4ad1e3amsh9a90ce59e6791c5p1d5b6ajsn6cdbcad22a5f",
     "x-rapidapi-host": "movies-tv-shows-database.p.rapidapi.com",
-    Type: "get-nowplaying-movies",
   },
 };
 

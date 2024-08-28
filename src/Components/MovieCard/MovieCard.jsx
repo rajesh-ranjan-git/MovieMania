@@ -6,7 +6,6 @@ import {
   CardActions,
   IconButton,
   Typography,
-  Chip,
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Star from "@mui/icons-material/Star";
