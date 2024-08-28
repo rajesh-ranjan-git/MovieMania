@@ -12,24 +12,21 @@ import Star from "@mui/icons-material/Star";
 import ShareIcon from "@mui/icons-material/Share";
 
 export default function MovieCard(movie) {
-  const { title, description, genre, rating, year, image } = movie.movie;
+  const { Poster, Title, Type, Year, imdbID } = movie.movie;
 
   return (
     <Card sx={{ maxWidth: 300 }} className="my-4 relative">
-      <CardMedia component="img" height="194" image={image} alt="movie_img" />
+      <CardMedia component="img" height="194" image={Poster} alt="movie_img" />
       <CardContent className="mb-8">
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {Title}
         </Typography>
         <Typography
           variant="body2"
           color="text.secondary"
-          className="h-10 overflow-hidden"
+          className="h-10 overflow-hidden capitalize"
         >
-          <strong>Description</strong> : {description}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <strong>Genre</strong> : {genre}
+          <strong>Type</strong> : {Type}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className="absolute bottom-0">
@@ -40,14 +37,11 @@ export default function MovieCard(movie) {
           <ShareIcon />
         </IconButton>
         <Typography variant="body2" color="text.secondary">
-          Year : {year}
+          <strong>Year</strong> : {Year}
         </Typography>
         <IconButton aria-label="share">
           <Star />
         </IconButton>
-        <Typography variant="body2" color="text.secondary">
-          Rating : {rating}
-        </Typography>
       </CardActions>
     </Card>
   );

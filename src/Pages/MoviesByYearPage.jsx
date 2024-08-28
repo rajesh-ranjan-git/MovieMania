@@ -1,17 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import getMovies from "../API/Movies";
+import getMoviesByYear from "../API/MoviesByYear";
 import MovieCard from "../Components/MovieCard/MovieCard";
 
-const Home = () => {
+const MoviesByYearPage = () => {
   const dispatch = useDispatch();
 
-  const { Search } = useSelector((state) => state.movies).movies;
-  console.log("Home", Search);
+  const { year } = useSelector((state) => state.movies);
+
+  const { Search } = useSelector((state) => state.movies).moviesByYear;
+  console.log("MoviesByYear", Search);
 
   useEffect(() => {
-    dispatch(getMovies());
-  }, []);
+    const url = `https://www.omdbapi.com/?s=${year}&apikey=ee3b9d1e`;
+    dispatch(getMoviesByYear(url));
+  }, [year]);
 
   return (
     <div className="flex flex-wrap justify-evenly">
@@ -21,4 +24,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MoviesByYearPage;

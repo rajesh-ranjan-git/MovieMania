@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import NavbarOptions from "./NavbarOptions";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchedValue } from "../../Slice/movieSlice";
+import { Link } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -60,14 +61,16 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            MovieMania
-          </Typography>
+          <Link to="/" className="text-white hover:text-white">
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              MovieMania
+            </Typography>
+          </Link>
           <Search onChange={onSearchChange}>
             <SearchIconWrapper>
               <SearchIcon />

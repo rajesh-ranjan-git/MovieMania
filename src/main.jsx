@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import Home from "./Pages/Home.jsx";
+import MoviesByYearPage from "./Pages/MoviesByYearPage.jsx";
 import Favorites from "./Pages/Favorites.jsx";
 import Profile from "./Pages/Profile.jsx";
 import store from "./Store/store.jsx";
@@ -17,6 +18,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/moviesbyyear",
+        element: <MoviesByYearPage />,
       },
       {
         path: "/favorites",

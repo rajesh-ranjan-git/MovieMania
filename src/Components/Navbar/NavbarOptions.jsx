@@ -11,9 +11,14 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { setYear } from "../../Slice/movieSlice";
+import { useDispatch } from "react-redux";
 
 export default function NavbarOptions() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [yearClick, setYearClick] = React.useState(false);
 
@@ -33,10 +38,16 @@ export default function NavbarOptions() {
 
   const yearDisplay = () => {
     let yearArr = [];
-    for (let i = 2024; i >= 2018; i--) {
+    for (let i = 2020; i >= 2010; i--) {
       yearArr.push(i);
     }
     return yearArr;
+  };
+
+  const handleYear = (yearItem) => {
+    console.log(yearItem);
+    dispatch(setYear(yearItem));
+    navigate("/moviesbyyear");
   };
 
   return (
@@ -69,10 +80,12 @@ export default function NavbarOptions() {
             <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 top-[120%] right-[-70%]">
               <ul className="py-2 text-sm text-gray-700">
                 {yearDisplay().map((yearItem, index) => (
-                  <li key={index}>
-                    <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                      {yearItem}
-                    </a>
+                  <li
+                    key={index}
+                    className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    onClick={() => handleYear(yearItem)}
+                  >
+                    {yearItem}
                   </li>
                 ))}
               </ul>
