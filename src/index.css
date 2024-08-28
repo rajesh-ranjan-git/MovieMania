@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Makeba";
+  src: local("Makeba"), url(/Fonts/Makeba.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "NunitoSansRegular";
+  src: local("NunitoSansRegular"),
+    url(/Fonts/NunitoSansRegular.ttf) format("truetype");
+}
+
+body {
+  font-family: NunitoSansRegular;
+}
