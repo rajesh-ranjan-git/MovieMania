@@ -31,5 +31,10 @@
 
 body {
   font-family: NunitoSansRegular;
+  scroll-behavior: smooth;
   @apply bg-neutral-900 text-neutral-300;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
