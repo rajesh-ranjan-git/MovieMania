@@ -4,8 +4,8 @@ import { RiMovie2Fill } from "react-icons/ri";
 import { IoSearchOutline } from "react-icons/io5";
 
 export const navigation = [
-  { label: "Movies", href: "tv", icon: <LuTv /> },
-  { label: "TV Shows", href: "movies", icon: <RiMovie2Fill /> },
+  { label: "TV Shows", href: "tv", icon: <LuTv /> },
+  { label: "Movies", href: "movie", icon: <RiMovie2Fill /> },
 ];
 
 export const mobileNavigation = [

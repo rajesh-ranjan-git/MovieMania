@@ -24,8 +24,8 @@ const Footer = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M18.2627 26.9922L29.2549 16C31.085 14.1699 32 11.9607 32 9.37258C32 6.78442 31.085 4.57528 29.2549 2.74517C27.4247 0.915055 25.2155 0 22.6274 0C20.0392 0 17.8301 0.915055 16 2.74517C14.1699 0.915055 11.9607 0 9.37258 0C6.78442 0 4.57528 0.915055 2.74517 2.74517C0.915056 4.57528 0 6.78442 0 9.37258C0 11.9607 0.915056 14.1699 2.74517 16L13.7373 26.9922C14.9869 28.2418 17.0131 28.2418 18.2627 26.9922Z"
                 fill="url(#paint0_radial_103_1602)"
               />
@@ -38,8 +38,8 @@ const Footer = () => {
                   gradientUnits="userSpaceOnUse"
                   gradientTransform="translate(8.07998 9.66157) rotate(59.8757) scale(18.7297 20.4872)"
                 >
-                  <stop stop-color="#FFAA00" />
-                  <stop offset="1" stop-color="#F05206" />
+                  <stop stopColor="#FFAA00" />
+                  <stop offset="1" stopColor="#F05206" />
                 </radialGradient>
               </defs>
             </svg>
