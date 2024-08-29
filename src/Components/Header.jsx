@@ -18,7 +18,7 @@ const Header = () => {
   }, [search]);
 
   return (
-    <header className="fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75">
+    <header className="fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75 z-40">
       <div className="container flex items-center mx-auto px-4 h-full cursor-pointer">
         <Link to="/">
           <img
