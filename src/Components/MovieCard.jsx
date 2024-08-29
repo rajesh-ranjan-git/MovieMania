@@ -9,7 +9,7 @@ const MovieCard = ({ data, trending, index }) => {
   return (
     <Link
       to={"/" + data.media_type + "/" + data.id}
-      className="relative w-full min-w-[230px] max-w-[230px] h-80 overflow-hidden rounded"
+      className="relative w-full min-w-[230px] max-w-[230px] h-80 overflow-hidden rounded hover:scale-105 transition-all"
     >
       <img src={imageURL + data?.poster_path} />
       <div className="absolute top-4">

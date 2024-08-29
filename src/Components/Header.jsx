@@ -18,14 +18,16 @@ const Header = () => {
   }, [search]);
 
   return (
-    <header className="fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75 z-40">
+    <header className="fixed top-0 w-full h-16 bg-transparent z-40 text-white">
       <div className="container flex items-center mx-auto px-4 h-full cursor-pointer">
         <Link to="/">
           <img
             className="absolute top-2 w-20 border-2 rounded-full"
             src="\logo.svg"
           />
-          <span className="pl-24 font-makeba text-5xl">MovieMania</span>
+          <span className="pl-24 font-makeba text-5xl text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-orange-300">
+            MovieMania
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-2 ml-5">
