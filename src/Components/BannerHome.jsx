@@ -1,17 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { TiChevronRightOutline, TiChevronLeftOutline } from "react-icons/ti";
 
 const BannerHome = () => {
   const bannerData = useSelector((state) => state.moviemaniaData.bannerData);
   const imageURL = useSelector((state) => state.moviemaniaData.imageURL);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const handleNext = () => {
+    if (currentImage < bannerData.length - 1) {
+      setCurrentImage((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentImage > 0) {
+      setCurrentImage((prev) => prev - 1);
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentImage < bannerData.length - 1) {
+        handleNext();
+      } else {
+        setCurrentImage(0);
+      }
+    }, 4000);
+
+    return clearInterval(interval);
+  }, [bannerData, imageURL]);
 
   return (
     <section className="w-full h-full">
       <div className="flex min-h-full max-h-[95vh] overflow-hidden">
         {bannerData.map((data, index) => {
           return (
-            <div className="relative min-w-full min-h-[450px] lg:min-h-full group">
+            <div
+              key={index}
+              className="relative min-w-full min-h-[450px] lg:min-h-full group transition-all"
+              style={{ transform: `translateX(-${currentImage * 100}%)` }}
+            >
               <div className="w-full h-full">
                 <img
                   src={imageURL + data.backdrop_path}
@@ -21,11 +50,17 @@ const BannerHome = () => {
 
               {/* Previous and next button */}
 
-              <div className="absolute top-0 px-4 w-full h-full hidden items-center justify-between group-hover:flex">
-                <button className="p-2 rounded text-2xl text-neutral-600 hover:text-white cursor-pointer z-10">
+              <div className="absolute top-0 px-4 w-full h-full hidden items-center justify-between group-hover:lg:flex">
+                <button
+                  className="p-2 rounded text-2xl text-neutral-400 hover:text-white cursor-pointer z-10"
+                  onClick={handlePrev}
+                >
                   <TiChevronLeftOutline />
                 </button>
-                <button className="p-2 rounded text-2xl text-neutral-600 hover:text-white cursor-pointer z-10">
+                <button
+                  className="p-2 rounded text-2xl text-neutral-400 hover:text-white cursor-pointer z-10"
+                  onClick={handleNext}
+                >
                   <TiChevronRightOutline />
                 </button>
               </div>
@@ -34,7 +69,7 @@ const BannerHome = () => {
               <div className="container mx-auto">
                 <div className="absolute bottom-0 px-3 max-w-md">
                   <h2 className="font-bold text-2xl lg:text-4xl text-white drop-shadow-2xl">
-                    {data.title}
+                    {data?.title || data?.name}
                   </h2>
                   <p className="my-3 text-ellipsis line-clamp-3">
                     {data.overview}

@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const moviemaniaSlice = createSlice({
-  name: "",
+  name: "moviemania",
   initialState,
   reducers: {
     setBannerData: (state, action) => {
