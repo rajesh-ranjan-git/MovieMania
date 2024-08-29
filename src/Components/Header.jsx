@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 w-full h-16 bg-transparent z-40 text-white">
-      <div className="container flex items-center mx-auto px-4 h-full cursor-pointer">
+      <div className="container flex items-center mx-auto px-4 pt-5 h-full cursor-pointer">
         <Link to="/">
           <img
             className="absolute top-2 w-20 border-2 rounded-full"
@@ -48,12 +48,12 @@ const Header = () => {
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-5">
+        <div className="ml-auto hidden lg:flex items-center gap-5">
           <form className="flex items-center gap-2" onSubmit={handleSearch}>
             <input
               type="text"
               placeholder="Search here..."
-              className="hidden lg:block px-4 py-1 bg-transparent outline-none border-none"
+              className="px-4 py-1 bg-transparent outline-none border-none"
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
@@ -62,7 +62,7 @@ const Header = () => {
             </button>
           </form>
 
-          <div className="w-12 h-12 cursor-pointer bg-neutral-700 rounded-full border-[1px] active:scale-75 transition-all">
+          <div className="hidden lg:block w-12 h-12 cursor-pointer bg-neutral-700 rounded-full border-[1px] active:scale-75 transition-all">
             <img className="rounded-full" src="\user.svg" />
           </div>
         </div>

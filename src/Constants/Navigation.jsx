@@ -4,20 +4,23 @@ import { RiMovie2Fill } from "react-icons/ri";
 import { IoSearchOutline } from "react-icons/io5";
 
 export const navigation = [
-  { label: "TV Shows", href: "tv", icon: <LuTv /> },
-  { label: "Movies", href: "movies", icon: <RiMovie2Fill /> },
+  { label: "Movies", href: "tv", icon: <LuTv /> },
+  { label: "TV Shows", href: "movies", icon: <RiMovie2Fill /> },
 ];
 
 export const mobileNavigation = [
   {
-    label: "Home",
     href: "/",
     icon: <ImHome />,
   },
+  { href: "tv", icon: <LuTv /> },
+  { href: "movies", icon: <RiMovie2Fill /> },
   {
-    label: "Search",
     href: "/search",
     icon: <IoSearchOutline />,
   },
-  ...navigation,
+  {
+    href: "/",
+    icon: <img className="w-7 h-7 rounded-full" src="\user.svg" />,
+  },
 ];
