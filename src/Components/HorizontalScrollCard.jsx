@@ -2,9 +2,8 @@ import React, { useRef } from "react";
 import MovieCard from "./MovieCard";
 import { TiChevronRightOutline, TiChevronLeftOutline } from "react-icons/ti";
 
-const HorizontalMovieCard = ({ data = [], heading }) => {
+const HorizontalScrollCard = ({ data = [], heading, trending }) => {
   const containerRef = useRef();
-  console.log("HorizontalMovieCard", data);
 
   const handleNext = () => {
     containerRef.current.scrollLeft += 300;
@@ -29,7 +28,7 @@ const HorizontalMovieCard = ({ data = [], heading }) => {
               <MovieCard
                 key={data.id + "heading" + index}
                 data={data}
-                trending={true}
+                trending={trending}
                 index={index + 1}
               />
             );
@@ -57,4 +56,4 @@ const HorizontalMovieCard = ({ data = [], heading }) => {
   );
 };
 
-export default HorizontalMovieCard;
+export default HorizontalScrollCard;

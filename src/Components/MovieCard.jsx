@@ -4,11 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ data, trending, index }) => {
-  console.log("Card", index);
   const imageURL = useSelector((state) => state.moviemaniaData.imageURL);
-  console.log("Card", data);
-  console.log("Card", imageURL);
-  console.log("Card", trending);
 
   return (
     <Link
