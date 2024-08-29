@@ -26,9 +26,9 @@ const BannerHome = () => {
       } else {
         setCurrentImage(0);
       }
-    }, 4000);
+    }, 3000);
 
-    return clearInterval(interval);
+    return () => clearInterval(interval);
   }, [bannerData, imageURL]);
 
   return (
