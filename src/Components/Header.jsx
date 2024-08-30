@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import { navigation } from "../Constants/Navigation";
 
 const Header = () => {
-  const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const [search, setSearch] = useState(
+    location?.search?.substring(3)?.split("%20")?.join(" ")
+  );
 
   const handleSearch = (e) => {
     e.preventDefault();

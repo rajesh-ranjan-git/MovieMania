@@ -12,7 +12,14 @@ const MovieCard = ({ data, trending, index, media_type }) => {
       to={"/" + mediaType + "/" + data.id}
       className="relative my-5 block w-full min-w-[230px] max-w-[230px] h-80 overflow-hidden rounded hover:scale-110 transition-all"
     >
-      <img src={imageURL + data?.poster_path} />
+      {data?.poster_path ? (
+        <img src={imageURL + data?.poster_path} />
+      ) : (
+        <div className="flex justify-center items-center h-full w-hull bg-neutral-800">
+          No Poster available
+        </div>
+      )}
+
       <div className="absolute top-4">
         {trending && (
           <div className="py-1 px-4 bg-black/60 backdrop:blur-3xl rounded-r-full overflow-hidden">

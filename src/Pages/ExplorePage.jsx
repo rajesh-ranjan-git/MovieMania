@@ -17,7 +17,7 @@ const ExplorePage = () => {
         },
       });
 
-      const tempArr = [...data];
+      // const tempArr = [...data];
 
       setData((prev) => {
         return [...prev, ...response.data.results];
@@ -44,17 +44,17 @@ const ExplorePage = () => {
   }, []);
 
   useEffect(() => {
-    fetchData();
-  }, [pageNo]);
-
-  useEffect(() => {
     setPageNo(1);
     setData([]);
     fetchData();
   }, [params.explore]);
 
+  useEffect(() => {
+    fetchData();
+  }, [pageNo]);
+
   return (
-    <div className="pt-24">
+    <div className="pt-24 pb-16">
       <div className="container mx-auto">
         <h3 className="my-3 text-lg lg:text-xl font-semibold capitalize">
           Popular {params.explore === "tv" ? "TV Shows" : "Movies"}

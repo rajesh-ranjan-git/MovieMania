@@ -34,12 +34,13 @@ function App() {
   }, []);
 
   return (
-    <main className="pb-14 lg:pb-0">
+    <main className="relative pb-14 lg:pb-0">
       <Header />
-      <div className="">
+      <div className="min-h-[90vh] 2xl:min-h-[93.4vh]">
         <Outlet />
       </div>
       <Footer />
+
       <MobileNavigation />
     </main>
   );
