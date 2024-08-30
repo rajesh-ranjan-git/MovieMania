@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import BannerHome from "../Components/BannerHome";
 import { useSelector } from "react-redux";
 import HorizontalScrollCard from "../Components/HorizontalScrollCard";
 import useFetch from "../CustomHooks/useFetch";
+import TrailerPlayer from "../Components/TrailerPlayer";
 
 const Home = () => {
+  const [playTrailer, setPlayTrailer] = useState(false);
+  const [trailerData, setTrailerData] = useState([]);
+
   const trendingMovies = useSelector(
     (state) => state.moviemaniaData.bannerData
   );
@@ -17,7 +21,10 @@ const Home = () => {
 
   return (
     <div>
-      <BannerHome />
+      <BannerHome
+        setPlayTrailer={setPlayTrailer}
+        setTrailerData={setTrailerData}
+      />
 
       <HorizontalScrollCard
         data={trendingMovies}
@@ -54,6 +61,14 @@ const Home = () => {
         heading={"On The Air"}
         media_type="tv"
       />
+
+      {playTrailer && (
+        <TrailerPlayer
+          data={trailerData}
+          close={() => setPlayTrailer(false)}
+          media_type={trailerData?.media_type}
+        />
+      )}
     </div>
   );
 };

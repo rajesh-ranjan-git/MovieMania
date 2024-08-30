@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetchDetails from "../CustomHooks/useFetchDetails";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import Divider from "../Components/Divider";
 import HorizontalScrollCard from "../Components/HorizontalScrollCard";
+import TrailerPlayer from "../Components/TrailerPlayer";
 
 const DetailsPage = () => {
+  const [playTrailer, setPlayTrailer] = useState(false);
+  const [trailerData, setTrailerData] = useState([]);
   const params = useParams();
   const imageURL = useSelector((state) => state.moviemaniaData.imageURL);
   const { data } = useFetchDetails(`/${params?.explore}/${params?.id}`);
@@ -32,14 +35,21 @@ const DetailsPage = () => {
     ?.map((el) => el?.name)
     .join(", ");
 
+  const handleTrailerPlayer = (data) => {
+    setPlayTrailer(true);
+    setTrailerData(data);
+  };
+
   return (
     <div>
       <div className="relative w-full h-[280px] 2xl:h-[400px]">
         <div className="w-full h-full">
-          <img
-            src={imageURL + data?.backdrop_path}
-            className="w-full h-full object-cover object-top"
-          />
+          {data?.backdrop_path && (
+            <img
+              src={imageURL + data?.backdrop_path}
+              className="w-full h-full object-cover object-top"
+            />
+          )}
         </div>
         <div className="absolute top-0 w-full h-full bg-gradient-to-t from-neutral-900 to-transparent"></div>
       </div>
@@ -49,6 +59,12 @@ const DetailsPage = () => {
             src={imageURL + data?.poster_path}
             className="w-60 min-w-60 2xl:min-w-96 2xl:w-96 2xl:h-[32rem] h-80 object-cover rounded"
           />
+          <button
+            className="my-4 px-4 py-2 w-full bg-white hover:bg-gradient-to-l from-red-700 to-orange-300 font-extrabold text-black hover:text-white rounded shadow-md transition-all hover:scale-105"
+            onClick={() => handleTrailerPlayer(data)}
+          >
+            Watch Trailer
+          </button>
         </div>
         <div className="mt-6">
           <h2 className="text-3xl font-bold text-white">
@@ -150,6 +166,7 @@ const DetailsPage = () => {
           media_type={params?.explore}
         />
       </div>
+
       <div>
         <HorizontalScrollCard
           data={recommendedData.results}
@@ -159,6 +176,14 @@ const DetailsPage = () => {
           media_type={params?.explore}
         />
       </div>
+
+      {playTrailer && (
+        <TrailerPlayer
+          data={trailerData}
+          close={() => setPlayTrailer(false)}
+          media_type={params?.explore}
+        />
+      )}
     </div>
   );
 };

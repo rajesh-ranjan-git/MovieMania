@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { TiChevronRightOutline, TiChevronLeftOutline } from "react-icons/ti";
 
-const BannerHome = () => {
+const BannerHome = ({ setPlayTrailer, setTrailerData }) => {
   const bannerData = useSelector((state) => state.moviemaniaData.bannerData);
   const imageURL = useSelector((state) => state.moviemaniaData.imageURL);
   const [currentImage, setCurrentImage] = useState(0);
@@ -17,6 +17,11 @@ const BannerHome = () => {
     if (currentImage > 0) {
       setCurrentImage((prev) => prev - 1);
     }
+  };
+
+  const handleTrailerPlayer = (data) => {
+    setPlayTrailer(true);
+    setTrailerData(data);
   };
 
   useEffect(() => {
@@ -79,8 +84,11 @@ const BannerHome = () => {
                     <span>|</span>
                     <p>Views : {Number(data.popularity).toFixed(0)}+</p>
                   </div>
-                  <button className="my-4 px-4 py-2 w-36 bg-white hover:bg-gradient-to-l from-red-700 to-orange-300 font-extrabold text-black hover:text-white rounded shadow-md transition-all hover:scale-105">
-                    Play Now
+                  <button
+                    className="my-4 px-4 py-2 w-36 bg-white hover:bg-gradient-to-l from-red-700 to-orange-300 font-extrabold text-black hover:text-white rounded shadow-md transition-all hover:scale-105"
+                    onClick={() => handleTrailerPlayer(data)}
+                  >
+                    Watch Trailer
                   </button>
                 </div>
               </div>
