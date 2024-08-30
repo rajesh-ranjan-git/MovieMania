@@ -17,15 +17,9 @@ const ExplorePage = () => {
         },
       });
 
-      // const tempArr = [...data];
-
       setData((prev) => {
         return [...prev, ...response.data.results];
       });
-
-      // setData((prev) => {
-      //   return [...tempArr, ...response.data.results];
-      // });
 
       setTotalPageNo(response.data.total_pages);
     } catch (err) {
@@ -41,6 +35,8 @@ const ExplorePage = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -64,7 +60,7 @@ const ExplorePage = () => {
           {data.map((exploreData, index) => {
             return (
               <MovieCard
-                key={exploreData.id + "explore"}
+                key={exploreData.id + "explore" + index}
                 data={exploreData}
                 media_type={params.explore}
               />
