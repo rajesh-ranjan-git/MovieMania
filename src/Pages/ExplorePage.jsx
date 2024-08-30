@@ -60,7 +60,7 @@ const ExplorePage = () => {
           Popular {params.explore === "tv" ? "TV Shows" : "Movies"}
         </h3>
 
-        <div className="flex flex-wrap justify-between gap-6">
+        <div className="flex flex-wrap justify-center lg:justify-start gap-6">
           {data.map((exploreData, index) => {
             return (
               <MovieCard

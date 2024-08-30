@@ -60,7 +60,7 @@ const SearchPage = () => {
           <input
             type="text"
             placeholder="Search here..."
-            className="px-4 py-1 w-full bg-white text-neutral-900 outline-none border-none rounded-full"
+            className="mb-3 px-4 py-1 w-full bg-white text-neutral-900 outline-none border-none rounded-full"
             onChange={(e) => navigate(`/search?q=${e.target.value}`)}
           />
         </form>

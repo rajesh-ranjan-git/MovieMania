@@ -9,17 +9,15 @@ export const navigation = [
 ];
 
 export const mobileNavigation = [
+  { label: "Home", href: "/", icon: <ImHome /> },
+  ...navigation,
   {
-    href: "/",
-    icon: <ImHome />,
-  },
-  { href: "tv", icon: <LuTv /> },
-  { href: "movies", icon: <RiMovie2Fill /> },
-  {
+    label: "Search",
     href: "/search",
     icon: <IoSearchOutline />,
   },
   {
+    label: "Profile",
     href: "/",
     icon: <img className="w-7 h-7 rounded-full" src="\user.svg" />,
   },
