@@ -3,13 +3,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ data, trending, index }) => {
+const MovieCard = ({ data, trending, index, media_type }) => {
   const imageURL = useSelector((state) => state.moviemaniaData.imageURL);
+  const mediaType = data.media_type ?? media_type;
 
   return (
     <Link
-      to={"/" + data.media_type + "/" + data.id}
-      className="relative block w-full min-w-[230px] max-w-[230px] h-80 overflow-hidden rounded hover:scale-105 transition-all"
+      to={"/" + mediaType + "/" + data.id}
+      className="relative my-5 block w-full min-w-[230px] max-w-[230px] h-80 overflow-hidden rounded hover:scale-110 transition-all"
     >
       <img src={imageURL + data?.poster_path} />
       <div className="absolute top-4">
@@ -23,7 +24,7 @@ const MovieCard = ({ data, trending, index }) => {
         <h2 className="text-ellipsis line-clamp-1 text-lg font-semibold">
           {data?.title || data?.name}
         </h2>
-        <div className="flex flex-col text-sm text-neutral-400">
+        <div className="flex flex-col text-xs text-neutral-400">
           <p>Released : {moment(data.release_date).format("MMMM Do YYYY")}</p>
           <p className="text-xs text-white">
             Rating : {Number(data.vote_average).toFixed(1)}

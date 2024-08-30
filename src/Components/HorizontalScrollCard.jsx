@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import MovieCard from "./MovieCard";
 import { TiChevronRightOutline, TiChevronLeftOutline } from "react-icons/ti";
 
-const HorizontalScrollCard = ({ data = [], heading, trending }) => {
+const HorizontalScrollCard = ({ data = [], heading, trending, media_type }) => {
   const containerRef = useRef();
 
   const handleNext = () => {
@@ -14,10 +14,8 @@ const HorizontalScrollCard = ({ data = [], heading, trending }) => {
   };
 
   return (
-    <div className="container mx-auto my-10 px-3">
-      <h2 className="mb-3 text-2xl lg:text-2xl text-white font-bold">
-        {heading}
-      </h2>
+    <div className="container mx-auto my-2 px-3">
+      <h2 className="text-2xl lg:text-2xl text-white font-bold">{heading}</h2>
       <div className="relative">
         <div
           ref={containerRef}
@@ -30,6 +28,7 @@ const HorizontalScrollCard = ({ data = [], heading, trending }) => {
                 data={data}
                 trending={trending}
                 index={index + 1}
+                media_type={media_type}
               />
             );
           })}
