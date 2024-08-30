@@ -7,8 +7,7 @@ const TrailerPlayer = ({ data, close, media_type }) => {
     `/${media_type}/${data?.id}/videos`
   );
 
-  console.log(data);
-  console.log(trailerData);
+  console.log(trailerData?.results);
 
   return (
     <section className="fixed flex justify-center items-center top-0 right-0 bottom-0 left-0 bg-neutral-700  bg-opacity-50 z-40">
@@ -21,7 +20,7 @@ const TrailerPlayer = ({ data, close, media_type }) => {
         </button>
 
         <iframe
-          src={`https://www.youtube.com/embed/${trailerData?.results[0]?.key}`}
+          src={`https://www.youtube.com/embed/${trailerData?.results?.[0].key}`}
           frameborder="0"
           className="w-full h-full"
         />
