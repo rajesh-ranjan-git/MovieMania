@@ -2,7 +2,7 @@ import React from "react";
 import BannerHome from "../Components/BannerHome";
 import { useSelector } from "react-redux";
 import HorizontalScrollCard from "../Components/HorizontalScrollCard";
-import useFetch from "../CustomeHooks/useFetch";
+import useFetch from "../CustomHooks/useFetch";
 
 const Home = () => {
   const trendingMovies = useSelector(
