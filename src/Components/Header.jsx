@@ -21,9 +21,9 @@ const Header = () => {
   }, [search]);
 
   return (
-    <header className="fixed top-0 w-full h-16 bg-transparent z-40 text-white">
+    <header className="fixed text-center top-0 pb-5 w-full h-20 bg-neutral-700 bg-opacity-80 z-40 text-white">
       <div className="container flex items-center mx-auto px-4 pt-5 h-full cursor-pointer">
-        <Link to="/">
+        <Link to="/" className="flex items-center mx-auto lg:mx-0">
           <img
             className="absolute top-2 w-20 border-2 rounded-full"
             src="\logo.svg"
@@ -52,7 +52,10 @@ const Header = () => {
         </nav>
 
         <div className="ml-auto hidden lg:flex items-center gap-5">
-          <form className="flex items-center gap-2" onSubmit={handleSearch}>
+          <form
+            className="flex items-center gap-2 p-2 border-2 border-neutral-400 rounded-md"
+            onSubmit={handleSearch}
+          >
             <input
               type="text"
               placeholder="Search here..."

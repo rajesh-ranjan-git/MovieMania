@@ -56,7 +56,7 @@ const ExplorePage = () => {
   return (
     <div className="pt-24 pb-16">
       <div className="container mx-auto">
-        <h3 className="my-3 text-lg lg:text-xl font-semibold capitalize">
+        <h3 className="my-3 text-lg lg:text-xl font-semibold text-center capitalize">
           Popular {params.explore === "tv" ? "TV Shows" : "Movies"}
         </h3>
 

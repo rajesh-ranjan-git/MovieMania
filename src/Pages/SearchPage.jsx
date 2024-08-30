@@ -54,18 +54,18 @@ const SearchPage = () => {
     <div className="pt-24 pb-16">
       <div className="container mx-auto">
         <form
-          className="lg:hidden m-2 flex items-center sticky top-28 z-10"
+          className="lg:hidden mx-auto m-2 max-w-72 flex items-center sticky top-28 z-10"
           onSubmit={handleSearch}
         >
           <input
             type="text"
             placeholder="Search here..."
-            className="mb-3 px-4 py-1 w-full bg-white text-neutral-900 outline-none border-none rounded-full"
+            className="mb-3 px-4 py-3 w-full bg-white text-neutral-900 text-center outline-none border-none rounded-full"
             onChange={(e) => navigate(`/search?q=${e.target.value}`)}
           />
         </form>
 
-        <h3 className="my-3 text-lg lg:text-xl font-semibold capitalize">
+        <h3 className="my-3 text-lg lg:text-xl font-semibold text-center capitalize">
           Search Results
         </h3>
 
