@@ -3,11 +3,13 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import MobileNavigation from "./Components/MobileNavigation";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setBannerData, setImageURL } from "./Store/moviemaniaSlice";
+import LoaderComponent from "./Components/LoaderComponent";
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   const fetchTrendingData = async () => {
@@ -31,10 +33,16 @@ function App() {
   useEffect(() => {
     fetchTrendingData();
     fetchConfiguration();
+    setLoading(false);
   }, []);
 
   return (
     <main className="relative pb-14 lg:pb-0">
+      {loading && (
+        <div className="flex justify-center items-center w-full h-[90vh]">
+          <LoaderComponent />
+        </div>
+      )}
       <Header />
       <div className="min-h-[90vh] 2xl:min-h-[93.4vh]">
         <Outlet />

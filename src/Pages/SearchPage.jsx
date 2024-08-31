@@ -2,12 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MovieCard from "../Components/MovieCard";
+import LoaderComponent from "../Components/LoaderComponent";
 
 const SearchPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [pageNo, setPageNo] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [scrolling, setScrolling] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -39,6 +42,8 @@ const SearchPage = () => {
       fetchData();
     }, 800);
 
+    setLoading(false);
+
     return () => clearTimeout(timerID);
   }, [location?.search]);
 
@@ -47,7 +52,9 @@ const SearchPage = () => {
   }, []);
 
   useEffect(() => {
+    setScrolling(true);
     fetchData();
+    setScrolling(false);
   }, [pageNo]);
 
   return (
@@ -66,6 +73,12 @@ const SearchPage = () => {
           Search Results
         </h3>
 
+        {loading && (
+          <div className="flex justify-center w-full">
+            <LoaderComponent />
+          </div>
+        )}
+
         <div className="flex flex-wrap justify-center lg:justify-start gap-6">
           {data.map((searchData, index) => {
             return (
@@ -77,6 +90,12 @@ const SearchPage = () => {
             );
           })}
         </div>
+
+        {scrolling && (
+          <div className="flex justify-center w-full">
+            <LoaderComponent />
+          </div>
+        )}
       </div>
     </div>
   );
