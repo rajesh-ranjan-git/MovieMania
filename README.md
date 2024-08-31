@@ -1,8 +1,26 @@
-# React + Vite
+# GetKart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1>Rajesh Ranjan (Author)</h1>
 
-Currently, two official plugins are available:
+This is an Movie-Hub App created with React + Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+YOu can browser for Movies, TV Shows along with Popular, Trending, Upcoming, Now Playing, On AIR, Similar and Recommeded MOvies/TV Shows.
+
+Tech Stacks used :
+
+> JSX <br>
+> TailWind CSS <br>
+> Multiple functionalities like Search Bar, Filtering Cards, Searching <br>
+> Dynamic Routing using React Routing <br>
+> Link tags <br>
+> Custom Hooks <br>
+> Higher Order Components <br>
+> Controlled and Uncontrolled components (Carousel) <br>
+> State Lifting <br>
+> Infinite Scrolling <br>
+> Redux <br>
+> Axios for API calls <br>
+> Usage of DaisyUI, Remix-icons, DummyJSON, Tailwind-Flex <br>
+> Deployed at https://app-moviemania.netlify.app <br>
+
+---
