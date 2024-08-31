@@ -33,9 +33,13 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
-    setPageNo(1);
-    setData([]);
-    fetchData();
+    let timerID = setTimeout(() => {
+      setPageNo(1);
+      setData([]);
+      fetchData();
+    }, 800);
+
+    return () => clearTimeout(timerID);
   }, [location?.search]);
 
   useEffect(() => {
