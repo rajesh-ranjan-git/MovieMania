@@ -32,21 +32,6 @@ const SearchPage = () => {
     }
   };
 
-  const handleSearch = (e) => {
-    console.log("search ran with debounce");
-    navigate(`/search?q=${e.target.value}`);
-  };
-
-  const debounce = (callback, delay) => {
-    let timerID;
-    return (...args) => {
-      clearTimeout(timerID);
-      timerID = setTimeout(() => {
-        callback(...args);
-      }, delay);
-    };
-  };
-
   useEffect(() => {
     setPageNo(1);
     setData([]);
