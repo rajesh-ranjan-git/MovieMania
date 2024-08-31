@@ -32,8 +32,23 @@ const SearchPage = () => {
     }
   };
 
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  // };
+
   const handleSearch = (e) => {
-    e.preventDefault();
+    console.log("search ran with debounce");
+    navigate(`/search?q=${e.target.value}`);
+  };
+
+  const debounce = (callback, delay) => {
+    let timerID;
+    return (...args) => {
+      clearTimeout(timerID);
+      timerID = setTimeout(() => {
+        callback(...args);
+      }, delay);
+    };
   };
 
   useEffect(() => {
@@ -55,13 +70,14 @@ const SearchPage = () => {
       <div className="container mx-auto">
         <form
           className="lg:hidden mx-auto m-2 max-w-72 flex items-center sticky top-28 z-10"
-          onSubmit={handleSearch}
+          // onSubmit={handleSearch}
         >
           <input
             type="text"
             placeholder="Search here..."
             className="mb-3 px-4 py-3 w-full bg-white text-neutral-900 text-center outline-none border-none rounded-full"
-            onChange={(e) => navigate(`/search?q=${e.target.value}`)}
+            // onChange={(e) => navigate(`/search?q=${e.target.value}`)}
+            onKeyUp={debounce(handleSearch, 3000)}
           />
         </form>
 
@@ -73,7 +89,7 @@ const SearchPage = () => {
           {data.map((searchData, index) => {
             return (
               <MovieCard
-                key={searchData.id + "search"}
+                key={searchData.id + "search" + index}
                 data={searchData}
                 media_type={searchData.media_type}
               />

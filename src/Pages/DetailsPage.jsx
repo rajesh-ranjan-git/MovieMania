@@ -140,7 +140,7 @@ const DetailsPage = () => {
                 ?.filter((el) => el.profile_path)
                 .map((starCast, index) => {
                   return (
-                    <div>
+                    <div key={index}>
                       <div>
                         <img
                           src={imageURL + starCast?.profile_path}
