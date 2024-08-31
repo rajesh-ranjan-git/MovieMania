@@ -2,7 +2,7 @@
 
 <h1>Rajesh Ranjan (Author)</h1>
 
-This is an Movie-Hub App created with React + Vite.
+This is a Movie-Hub Application created using React & Vite.
 
 YOu can browser for Movies, TV Shows along with Popular, Trending, Upcoming, Now Playing, On AIR, Similar and Recommeded MOvies/TV Shows.
 
