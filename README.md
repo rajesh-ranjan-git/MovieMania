@@ -27,6 +27,6 @@ Tech Stacks used :
 
 ## Todo
 
-> Need to add authentication
-> Need to add favorites through DB
+> Need to add authentication and authorization
+> Need to add favorites
 ---
