@@ -27,6 +27,6 @@ Tech Stacks used :
 
 ## Todo
 
-> Need to add authentication and authorization
+> Need to add authentication and authorization <br>
 > Need to add favorites
 ---
