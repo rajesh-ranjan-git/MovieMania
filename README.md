@@ -25,4 +25,5 @@ Tech Stacks used :
 > Axios for API calls <br>
 > Deployed at https://app-moviemania.netlify.app <br>
 
+## Todo - Need to add authentication as well
 ---
